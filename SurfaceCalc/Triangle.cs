@@ -1,5 +1,8 @@
 ﻿namespace SurfaceCalc;
 
+/// <summary>
+/// Triangle as geometrical shape.
+/// </summary>
 public class Triangle: Shape, ISurfaceCalculatable
 {
     public virtual double FirstSide { get; private set; }
@@ -8,6 +11,7 @@ public class Triangle: Shape, ISurfaceCalculatable
 
     public Triangle(double firstSide, double secondSide, double thirdSide)
     {
+        // If it is not a triangle
         if (!IsTriangle(firstSide, secondSide, thirdSide))
         {
             // Probably should not throw an exception, depends on business logic
@@ -19,6 +23,13 @@ public class Triangle: Shape, ISurfaceCalculatable
         ThirdSide = thirdSide;
     }
 
+    /// <summary>
+    /// Checks is it a triangle or not based on 3 sides.
+    /// </summary>
+    /// <param name="firstSide">Side of the triangle</param>
+    /// <param name="secondSide">Side of the triangle</param>
+    /// <param name="thirdSide">Side of the triangle</param>
+    /// <returns></returns>
     protected static bool IsTriangle(double firstSide, double secondSide, double thirdSide)
     {
         //Triangle inequality
@@ -27,6 +38,10 @@ public class Triangle: Shape, ISurfaceCalculatable
             (secondSide + thirdSide > firstSide);
     }
 
+    /// <summary>
+    /// Checks is this triangle right or not.
+    /// </summary>
+    /// <returns></returns>
     public bool IsRightTriangle()
     {
         // Probably need to handle loss of presicion, depends on business logic
@@ -35,6 +50,10 @@ public class Triangle: Shape, ISurfaceCalculatable
                (SecondSide * SecondSide + ThirdSide * ThirdSide == FirstSide * FirstSide);
     }
     
+    /// <summary>
+    /// Calculates surface of this triangle instance.
+    /// </summary>
+    /// <returns>Surface value</returns>
     public virtual double CalculateSurface()
     {
         // Probably should also check if the triangle is right and calculate surface by 2 legs.

@@ -1,9 +1,15 @@
 ﻿namespace SurfaceCalc;
 
+/// <summary>
+/// Circle as geometrical shape
+/// </summary>
 public class Circle: Shape, ISurfaceCalculatable
 {
     private double _radius;
     
+    /// <summary>
+    /// Radius of this circle, can not be less than 0.
+    /// </summary>
     public virtual double Radius
     {
         get => _radius;
@@ -26,6 +32,10 @@ public class Circle: Shape, ISurfaceCalculatable
         Radius = radius;
     }
     
+    /// <summary>
+    /// Calculates surface of this circle.
+    /// </summary>
+    /// <returns>Surface value</returns>
     public virtual double CalculateSurface()
     {
         return Math.PI * Radius * Radius;
