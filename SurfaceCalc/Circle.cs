@@ -4,7 +4,7 @@ public class Circle: Shape, ISurfaceCalculatable
 {
     private double _radius;
     
-    public double Radius
+    public virtual double Radius
     {
         get => _radius;
         set
@@ -26,7 +26,7 @@ public class Circle: Shape, ISurfaceCalculatable
         Radius = radius;
     }
     
-    public double CalculateSurface()
+    public virtual double CalculateSurface()
     {
         return Math.PI * Radius * Radius;
     }
